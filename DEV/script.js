@@ -1,5 +1,3 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 // Dom
 const resultEl = document.getElementById("result");
 const lengthEl = document.getElementById("length");
@@ -15,7 +13,33 @@ const randomFunc = {
   lower: getRandomLower,
   number: getRandomNumber,
   symbol: getRandomSymbol,
+
+
+  // event listener
+generateEl.addEventListener("click", () => {
+  const length = +lengthEl.value;
+  const hasupper = uppercaseEl.checked;
+  const haslower = lowercaseEl.checked;
+  const hasNumber = numbersEl.checked;
+  const hasSymbol = symboslEl.checked;
+});
+
+resultEl.innerText = generatePassword(
+  length, 
+  hasUpper, 
+  hasLower, 
+  hasNumber, 
+  hasSymbol
+  );
 };
+// generate password
+
+function generatePassword(upper, lower, number, symbol, length) {
+  
+}
+
+
+
 
 // Write password to the #password input http://www.net-comber.com/charset.html
 function getRandomUpper() {
@@ -35,11 +59,4 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-// vent listener
-generateEl.addEventListener("click", () => {
-  const length = +lengthEl.value;
-  const hasupper = uppercaseEl.checked;
-  const haslower = lowercaseEl.checked;
-  const hasNumber = numbersEl.checked;
-  const hasSymbol = symboslEl.checked;
-});
+
