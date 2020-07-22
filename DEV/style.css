@@ -75,7 +75,7 @@ body {
 .btn {
   border: none;
   background-color: orangered;
-  border-radius: 25px;
+  border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
@@ -87,10 +87,36 @@ body {
   text-align: center;
   cursor: pointer;
 }
+.btnS {
+  border: none;
+  background-color: orangered;
+  border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+    0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 10px;
+  line-height: 15px;
+  margin: 12px 12px 12px 20px;
+  padding: 10px 24px;
+  text-align: center;
+  cursor: pointer;
+}
 
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+
+input[type="checkbox"] {
+  margin-right: 0;
 }
 
 .float-right {
