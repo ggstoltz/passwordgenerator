@@ -35,5 +35,11 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// vent listener
+generateEl.addEventListener("click", () => {
+  const length = +lengthEl.value;
+  const hasupper = uppercaseEl.checked;
+  const haslower = lowercaseEl.checked;
+  const hasNumber = numbersEl.checked;
+  const hasSymbol = symboslEl.checked;
+});
