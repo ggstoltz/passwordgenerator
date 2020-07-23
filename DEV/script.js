@@ -15,7 +15,7 @@ const randomFunc = {
   symbol: getRandomSymbol,
 };
 
-// event listener
+// Generate Event Button
 
 generate.addEventListener("click", () => {
   const length = +lengthEl.value;
@@ -33,7 +33,7 @@ generate.addEventListener("click", () => {
     length
   );
 });
-
+// Clipboard Event Button
 clipboard.addEventListener("click", () => {
   const textarea = document.createElement("textarea");
   const password = resultEl.innerText;
@@ -76,7 +76,7 @@ function generatePassword(upper, lower, number, symbol, length) {
   return finalPassword;
 }
 
-// functions password input http://www.net-comber.com/charset.html
+// Functions for creating password data
 function getRandomUpper() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
@@ -93,3 +93,7 @@ function getRandomSymbol() {
   const symbol = "!@#$%^&*(){}[]=<>/,.";
   return symbol[Math.floor(Math.random() * symbol.length)];
 }
+
+// Java ref
+// http://www.net-comber.com/charset.html
+// https://youtu.be/duNmhKgtcsI
