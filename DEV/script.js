@@ -4,7 +4,7 @@ const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
 const lowercaseEl = document.getElementById("lowercase");
 const numbersEl = document.getElementById("numbers");
-const symbolsEl = document.getElementById("symbols");
+const symbolEl = document.getElementById("symbols");
 const generateEl = document.getElementById("generate");
 const clipboardEl = document.getElementById("clipboard");
 
@@ -16,6 +16,24 @@ const randomFunc = {
 };
 
 // event listener
+
+generate.addEventListener("click", () => {
+  const length = +lengthEl.value;
+  const hasUpper = uppercaseEl.checked;
+  const hasLower = lowercaseEl.checked;
+  const hasNumber = numbersEl.checked;
+  const hasSymbol = symbolEl.checked;
+
+  console.log(hasLower, hasUpper, hasNumber, hasSymbol);
+  resultEl.innerText = generatePassword(
+    hasSymbol,
+    hasUpper,
+    hasLower,
+    hasNumber,
+    length
+  );
+});
+
 clipboard.addEventListener("click", () => {
   const textarea = document.createElement("textarea");
   const password = resultEl.innerText;
@@ -30,22 +48,6 @@ clipboard.addEventListener("click", () => {
   document.execCommand("copy");
   textarea.remove();
   alert("Password copied to clipboard");
-});
-
-generateEl.addEventListener("click", () => {
-  const length = +lengthEl.value;
-  const hasUpper = uppercaseEl.checked;
-  const hasLower = lowercaseEl.checked;
-  const hasNumber = numbersEl.checked;
-  const hasSymbol = symbolsEl.checked;
-
-  resultEl.innerText = generatePassword(
-    length,
-    hasUpper,
-    hasLower,
-    hasNumber,
-    hasSymbol
-  );
 });
 
 // generate password
@@ -66,7 +68,7 @@ function generatePassword(upper, lower, number, symbol, length) {
   for (let i = 0; i < length; i += typesCount) {
     typesArr.forEach((type) => {
       const funcName = Object.keys(type)[0];
-      generatedPassword += randomFunc[funcName]();
+      generatePassword += randomFunc[funcName]();
     });
   }
   const finalPassword = generatePassword.slice(0, length);
@@ -88,6 +90,6 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-  const symbols = "!@#$%^&*-_.";
-  return symbols[Math.floor(Math.random() * symbols.length)];
+  const symbol = "!@#$%^&*(){}[]=<>/,.";
+  return symbol[Math.floor(Math.random() * symbol.length)];
 }

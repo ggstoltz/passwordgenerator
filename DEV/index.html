@@ -41,7 +41,7 @@
 
         <div class="settings">
           <label for="symbols">Include Symbols</label>
-          <input type="checkbox" id="symbol" checked />
+          <input type="checkbox" id="symbols" checked />
         </div>
 
         <div class="genbtn">
@@ -49,6 +49,12 @@
         </div>
 
         <div class="password-space">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
           <span id="result"></span>
           <button class="btn" id="clipboard">
             <i class="far fa-clipboard"></i>
