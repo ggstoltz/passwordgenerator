@@ -4,7 +4,7 @@ const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
 const lowercaseEl = document.getElementById("lowercase");
 const numbersEl = document.getElementById("numbers");
-const symbolsEl = document.getElementById("symbol");
+const symbolsEl = document.getElementById("symbols");
 const generateEl = document.getElementById("generate");
 const clipboardEl = document.getElementById("clipboard");
 
@@ -16,6 +16,22 @@ const randomFunc = {
 };
 
 // event listener
+clipboard.addEventListener("click", () => {
+  const textarea = document.createElement("textarea");
+  const password = resultEl.innerText;
+
+  if (!password) {
+    return;
+  }
+
+  textarea.value = password;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+  alert("Password copied to clipboard");
+});
+
 generateEl.addEventListener("click", () => {
   const length = +lengthEl.value;
   const hasUpper = uppercaseEl.checked;
@@ -31,15 +47,16 @@ generateEl.addEventListener("click", () => {
     hasSymbol
   );
 });
+
 // generate password
 
 function generatePassword(upper, lower, number, symbol, length) {
   let generatePassword = " ";
-
   const typesCount = lower + upper + number + symbol;
-
   const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(
-    (item) => Object.values(item)[0]
+    (item) => {
+      return Object.values(item)[0];
+    }
   );
 
   if (typesCount === 0) {
@@ -52,9 +69,12 @@ function generatePassword(upper, lower, number, symbol, length) {
       generatedPassword += randomFunc[funcName]();
     });
   }
+  const finalPassword = generatePassword.slice(0, length);
+
+  return finalPassword;
 }
 
-// Write password to the #password input http://www.net-comber.com/charset.html
+// functions password input http://www.net-comber.com/charset.html
 function getRandomUpper() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }

@@ -4,51 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
+    <script
+      src="https://kit.fontawesome.com/3da1a747b2.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
+    <title>Password Generator</title>
   </head>
+
   <body>
     <div class="container">
-      <!-- <header>
-        <h1>Password Generator</h1>
-      </header> -->
-      <div class="results-card">
+      <div class="interface">
         <div class="card-header">
           <h1>Generate a Password</h1>
         </div>
 
         <div class="settings">
-          <label for="length">Password length</label>
+          <label for="length">Password Length</label>
           <input type="number" id="length" min="8" max="128" value="20" />
         </div>
 
         <div class="settings">
-          <label for="uppercase">Include uppercase letters</label>
+          <label for="uppercase">Include Uppercase letters</label>
           <input type="checkbox" id="uppercase" checked />
         </div>
 
         <div class="settings">
-          <label for="lowercase">Include lowercase letters</label>
+          <label for="lowercase">Include Lowercase letters</label>
           <input type="checkbox" id="lowercase" checked />
         </div>
 
         <div class="settings">
-          <label for="numbers">Include numbers</label>
+          <label for="numbers">Include Numbers</label>
           <input type="checkbox" id="numbers" checked />
         </div>
 
         <div class="settings">
-          <label for="symbols">Include symbols</label>
-          <input type="checkbox" id="symbols" checked />
+          <label for="symbols">Include Symbols</label>
+          <input type="checkbox" id="symbol" checked />
         </div>
 
-        <div class="card-body">
+        <div class="genbtn">
+          <button id="generate" class="btn">Generate</button>
+        </div>
+
+        <div class="password-space">
           <span id="result"></span>
-          <button class="btnS" id="clipboard">Copy</button>
-        </div>
-
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <button class="btn" id="clipboard">
+            <i class="far fa-clipboard"></i>
+          </button>
         </div>
       </div>
     </div>
